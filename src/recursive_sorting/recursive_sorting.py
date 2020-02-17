@@ -24,9 +24,17 @@ def merge( arrA, arrB ):
     return merged_arr
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
+
 def merge_sort( arr ):
     # TO-DO
+    if len(arr) <= 1:
+        return arr
+    
+    mid_index = len(arr)//2
+    left = merge_sort(arr[:mid_index])
+    right = merge_sort(arr[mid_index:])
 
+    arr = merge(left, right)
     return arr
 
 
@@ -50,3 +58,5 @@ def timsort( arr ):
 
 
 print(merge([1,2,3], [2,47,4,5]))
+
+print(merge_sort([1,2,3,2,47,4,5]))
