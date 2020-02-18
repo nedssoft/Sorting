@@ -38,17 +38,23 @@ def merge( arrA, arrB ):
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 
-def merge_sort( arr ):
-    # TO-DO
-    if len(arr) <= 1:
-        return arr
-    
-    mid_index = len(arr)//2
-    left = merge_sort(arr[:mid_index])
-    right = merge_sort(arr[mid_index:])
+def merge_sort(arr):
 
-    arr = merge(left, right)
-    return arr
+    if (len(arr) <=1 ):
+        return arr
+    # Get the middle of the array
+    mid = len(arr) // 2
+    # Get the LHS
+    left = arr[:mid]
+    #Get the RHS
+    right = arr[mid:]
+
+    # Repeat the process above for each part until it reaches base case
+    left = merge_sort(left)
+    right = merge_sort(right)
+    
+    # Merge the two arrays
+    return merge(left, right)
 
 
 # STRETCH: implement an in-place merge sort algorithm
